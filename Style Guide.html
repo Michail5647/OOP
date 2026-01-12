@@ -10,9 +10,9 @@
 
 <body class="stackedit">
   <div class="stackedit__html"><blockquote>
-<p><em>Попытка использовать любой инструмент, не разобравшись хотя бы в основах того, что он делает и как его<br>
-следует использовать, скорее всего, приведет к разочарованию. С другой стороны, если потратить все свое<br>
-время на изучение теории о чем-то без практического применения, это будет довольно скучным занятием и<br>
+<p><em>Попытка использовать любой инструмент, не разобравшись хотя бы в основах того, что он делает и как его
+следует использовать, скорее всего, приведет к разочарованию. С другой стороны, если потратить все свое
+время на изучение теории о чем-то без практического применения, это будет довольно скучным занятием и
 часто приводит к слишком идеалистическому пониманию.</em><br>
 © 2018 Крейг Скотт</p>
 </blockquote>
@@ -162,13 +162,13 @@ Makefiles / Ninja / Visual Studio / Xcode
 <li><em><strong>In-source и Out-of-source сборка</strong></em></li>
 </ol>
 <pre class=" language-bash"><code class="prism  language-bash">cmake <span class="token keyword">.</span>
-<span class="token function">make</span>
+<span class="prism  language-bash">make</span>
 </code></pre>
-<p>bad</p>
+<p>//bad</p>
 <pre class=" language-bash"><code class="prism  language-bash">cmake -S <span class="token keyword">.</span> -B build
 cmake --build build
 </code></pre>
-<p>ok</p>
+<p>//ok</p>
 <p>Преимущества out-of-source:</p>
 <ul>
 <li>чистые исходники</li>
@@ -249,10 +249,10 @@ add_library(mylib src.cpp)
 </ol>
 <pre class=" language-cmake"><code class="prism  language-cmake">set(CMAKE_CXX_STANDARD 20)
 </code></pre>
-<p>bad</p>
+<p>//bad</p>
 <pre class=" language-cmake"><code class="prism  language-cmake">target_compile_features(app PRIVATE cxx_std_20)
 </code></pre>
-<p>ok</p>
+<p>//ok</p>
 <ol start="9">
 <li><em><strong>Библиотеки</strong></em></li>
 </ol>
@@ -357,7 +357,6 @@ target_compile_options(app PRIVATE -Wall -Wextra)
 <p><em><strong>Рекомендации по изучению</strong></em></p>
 <ol>
 <li>Всегда думать в терминах targets</li>
-<li>Использовать CMake</li>
 <li>Читать чужие проекты</li>
 <li>Использовать CMakePresets</li>
 <li>Не копировать устаревшие примеры</li>
