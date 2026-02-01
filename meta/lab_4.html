@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>README.md</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="перегрузка-операторов-и-операторы-преобразования-типов-в-c----omit-in-toc---">4 - Перегрузка операторов и операторы преобразования типов в C++ <!-- omit in toc --></h1>
+<blockquote>
+<p>Лабораторная работа 4 для студентов курса “Программирование на основе классов и шаблонов” 2 семестра кафедры ИУ5 МГТУ им Н.Э. Баумана.</p>
+</blockquote>
+<h2 id="содержание----omit-in-toc---">Содержание <!-- omit in toc --></h2>
+<ul>
+<li><a href="#%D1%86%D0%B5%D0%BB%D1%8C-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B">Цель работы</a></li>
+<li><a href="#%D0%BD%D0%B0%D1%87%D0%B0%D0%BB%D0%BE-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B">Начало работы</a></li>
+<li><a href="#%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5">Задание</a></li>
+<li><a href="#%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%D0%B8%D1%8F-%D0%BF%D0%BE-%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D1%8E-%D0%BB%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%BE%D0%B9-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B">Указания по выполнению лабораторной работы</a></li>
+<li><a href="#%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-1">Приложение 1</a></li>
+</ul>
+<h2 id="цель-работы">Цель работы</h2>
+<p>Целью лабораторной работы является изучение механизмов перегрузки операторов и операторов преобразования типов в языке программирования C++, а также формирование практических навыков разработки пользовательских классов, поддерживающих арифметические операции и неявные и явные преобразования типов.</p>
+<p>В ходе выполнения лабораторной работы студент осваивает:</p>
+<ul>
+<li>перегрузку арифметических операторов и операторов ввода-вывода;</li>
+<li>использование конструкторов преобразования и операторов преобразования типов;</li>
+<li>применение дружественных функций и методов класса;</li>
+<li>разработку и использование статических библиотек.</li>
+</ul>
+<h2 id="начало-работы">Начало работы</h2>
+<p>Зайдите в свою локальную директорию с репозиторием для выполнения лабораторных работ. Заберите ветку с соответствующей лабораторной работой из общего репозитория:</p>
+<pre class=" language-sh"><code class="prism  language-sh">git pull upstream
+</code></pre>
+<p><strong>или</strong></p>
+<pre class=" language-sh"><code class="prism  language-sh">git pull upstream lab_4
+</code></pre>
+<p>Переключитесь на ветку с текущей лабораторной работой:</p>
+<pre class=" language-sh"><code class="prism  language-sh">git checkout lab_4
+</code></pre>
+<p>Свяжите ветку локального репозитория с вашим удаленным репозиторием:</p>
+<pre class=" language-sh"><code class="prism  language-sh">git push --set-upstream origin lab_4
+</code></pre>
+<h2 id="задание">Задание</h2>
+<p>Лабораторная работа состоит из двух частей:</p>
+<p><strong>Часть 1:</strong></p>
+<p>I.  <strong>Создать класс</strong> <code>Fraction</code> для выполнения арифметических операций над обыкновенными дробями.</p>
+<ul>
+<li>Внутреннее представление дроби должно быть рациональным и обеспечивать эффективное выполнение арифметических операций. Допускается хранение дроби в виде неправильной дроби.</li>
+</ul>
+<p>II.  <strong>Разработать конструкторы</strong></p>
+<ul>
+<li>
+<p>конструктор по умолчанию;</p>
+</li>
+<li>
+<p>конструктор преобразования из строки;</p>
+</li>
+<li>
+<p>конструктор копирования (он используется: Fraction x(z))</p>
+</li>
+</ul>
+<p>III.  <strong>Перегрузить операции</strong> потокового ввода дроби с клавиатуры и вывода ее на экран монитора. При вводе и выводе дроби обеспечить автоматическое сокращение дроби и корректный вывод знака.</p>
+<p>IV.  <strong>Создать многофайловый проект</strong> и отладить программу, использующую класс <code>Fraction</code>, состоящую из первых пяти логических фрагментов программы (ввод, конструкторы, копирование, операции с дробями, операции с целыми),<br>
+приведённой в Приложении 1.</p>
+<p>V.  Дополнить класс <strong>функциями-членами класса</strong> и <strong>функциями-друзьями класса</strong>, которые необходимы для выполнения программы из Приложения 1.</p>
+<ul>
+<li>Использовать функции-друзья только в тех случаях, когда реализация через методы класса невозможна.</li>
+</ul>
+<p>VI.  Выполнить программу из Приложения 1 и сравнить результаты с тестовым примером.</p>
+<blockquote>
+<p><strong>предупреждение</strong><br>
+Класс <code>Fraction</code> необходимо упаковать в самостоятельную статическую библиотеку.</p>
+</blockquote>
+<p><strong>Часть 2:</strong></p>
+<ol>
+<li>
+<p>Разработать необходимые конструкторы для преобразования простых типов (int, double) к классу <code>Fraction</code>.</p>
+</li>
+<li>
+<p>Удалить дружественные операторы +, +=, -, -= во всех сочетаниях с простыми типами. Реализовать преобразование типов исключительно с помощью конструкторов и операторов преобразования типов. Все операции сложения реализовать через оператор +=.</p>
+</li>
+</ol>
+<h2 id="указания-по-выполнению-лабораторной-работы">Указания по выполнению лабораторной работы</h2>
+<p><strong>Часть 1.</strong></p>
+<p><strong>Создание класса.</strong></p>
+<p>В данной лабораторной работе необходимо создать класс для работы с обыкновенными дробями. Все операции, которые должны выполняться с дробями, включены в программу в <code>Приложении 1</code>.</p>
+<p>Числитель и знаменатель дроби имеют тип int.</p>
+<p>Дроби вводятся как строка, имеющая вид:</p>
+<ul>
+<li>для дробей <strong>с целой частью</strong>: знак, целая часть, пробел, числитель, слэш (/), знаменатель. Например: <code>-2 6/18</code>, <code>5 9/3</code>, <code>2 4/1</code>.</li>
+<li>для дробей <strong>без целой части</strong>: знак, числитель, слэш (/), знаменатель. Например: <code>3/4</code>, <code>-9/3</code>, <code>-8/6</code> (знаменатель всегда положительный).</li>
+<li>для дробей <strong>без дробной части</strong>. Например: <code>-2</code>, <code>0</code>, <code>4</code>.</li>
+<li>для неправильных дробей вида <code>-5 88/2</code>.</li>
+</ul>
+<p>Значения представленных выше дробей на экране при выводе должны иметь вид:</p>
+<pre class=" language-bash"><code class="prism  language-bash">-2 1/3,  8,  6.
+3/4,  -3,  -1 1/3.
+</code></pre>
+<blockquote>
+<p><strong>предупреждение</strong></p>
+<ul>
+<li>Предусмотреть генерацию исключения или сообщение об ошибке при обработке некорректных данных: <code>4/0</code>, <code>-1 3/0</code>.</li>
+<li>При выводе и после выполнения арифметических операций дроби сокращаются, то есть числитель и знаменатель не должны иметь общих множителей.</li>
+</ul>
+</blockquote>
+<p><strong>Создание конструкторов.</strong></p>
+<p>Для инициализации объектов разрабатываемого класса обыкновенных дробей предусмотреть соответствующие конструкторы (с одним аргументом типа <code>char*</code> и с двумя аргументами типа <code>int</code>, которые имеют значения по умолчанию).</p>
+<p><strong>Перегрузка операций.</strong></p>
+<p>Для работы с дробями необходимо:</p>
+<ol>
+<li>Перегрузить операции +, += для сложения дробей и дроби_и_целого в любых сочетаниях (дробь+целое, целое+дробь, дробь+дробь).</li>
+<li>Перегрузить операции +, += для сложения дроби и double в любых сочетаниях (дробь+double, double+дробь). Преобразование double-&gt;дробь должно выполняться с точностью до kNumberDecimalPlaces десятичных знаков после запятой, где kNumberDecimalPlaces - целочисленная константа, задаваемая пользователем. Задайте значение по умолчанию kNumberDecimalPlaces = 4.</li>
+</ol>
+<blockquote>
+<p><strong>осторожно</strong></p>
+<p>Для разбора double запрещено использовать тип <code>string</code>.</p>
+</blockquote>
+<p>При перегрузке операций использовать <em>функции-члены класса</em>, а где это невозможно, то <em>функции-друзья класса</em>.</p>
+<p><strong>Часть 2.</strong></p>
+<p>Вторая часть лабораторной работы необходима для разработки операций преобразований типов. Для этого необходимо создать соответствующие конструкторы или определить методы преобразования типов. При этом удалить дружественные операторы +, +=, -, -= в любых сочетаниях, оставить только базовые методы работы с самим классом (дробь + дробь, += дробь и т д). <strong>Сложение определять через +=.</strong></p>
+<p><strong>Контрольные вопросы</strong></p>
+<ol>
+<li>
+<p>Как работает перегрузка операторов?</p>
+</li>
+<li>
+<p>Что значит продолжение жизни временного объекта? Как реализовывается?</p>
+</li>
+<li>
+<p>Зачем нужны дружественные методы?</p>
+</li>
+<li>
+<p>Почему в части 2 можно удалить дружественные методы?</p>
+</li>
+<li>
+<p>В чём отличие конструктора преобразования от оператора преобразования типов?</p>
+</li>
+</ol>
+<h2 id="приложение-1">Приложение 1</h2>
+<pre class=" language-cpp"><code class="prism  language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"fraction.h"</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Fraction z<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Введите дробь: "</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cin <span class="token operator">&gt;&gt;</span> z<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"1. Ввод дроби с клавиатуры\n"</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"z = "</span> <span class="token operator">&lt;&lt;</span> z <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+
+    Fraction <span class="token function">fr1</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Fraction fr2<span class="token punctuation">;</span>
+    Fraction <span class="token function">fr3</span><span class="token punctuation">(</span><span class="token string">"-1 4/8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"2. Проверка конструкторов\n"</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"fr1 = "</span> <span class="token operator">&lt;&lt;</span> fr1 <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"fr2 = "</span> <span class="token operator">&lt;&lt;</span> fr2 <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"fr3 = "</span> <span class="token operator">&lt;&lt;</span> fr3 <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+
+
+    Fraction <span class="token function">x</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"3. Проверка копирующего конструктора\n"</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"x = "</span> <span class="token operator">&lt;&lt;</span> x <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"4. Арифметические операции (дробь + дробь)"</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+    Fraction y <span class="token operator">=</span> x <span class="token operator">+</span> fr1<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"y = x + fr1 = "</span> <span class="token operator">&lt;&lt;</span> y <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+
+    y <span class="token operator">+</span><span class="token operator">=</span> fr3<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"y += fr3 -&gt; "</span> <span class="token operator">&lt;&lt;</span> y <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"5. Арифметика с целыми числами"</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+    y <span class="token operator">=</span> x <span class="token operator">+</span> i<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"y = x + i = "</span> <span class="token operator">&lt;&lt;</span> y <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+
+    y <span class="token operator">=</span> i <span class="token operator">+</span> x<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"y = i + x = "</span> <span class="token operator">&lt;&lt;</span> y <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+
+    y <span class="token operator">+</span><span class="token operator">=</span> i<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"y += i -&gt; "</span> <span class="token operator">&lt;&lt;</span> y <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"6. Арифметика с double"</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword">double</span> d <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1.25</span><span class="token punctuation">;</span>
+    Fraction f <span class="token operator">=</span> d<span class="token punctuation">;</span>  <span class="token comment">// Преобразование double -&gt; Fraction (используется в части 2)</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"f = "</span> <span class="token operator">&lt;&lt;</span> f <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+
+    y <span class="token operator">=</span> x <span class="token operator">+</span> d<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"y = x + d = "</span> <span class="token operator">&lt;&lt;</span> y <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+
+    y <span class="token operator">=</span> d <span class="token operator">+</span> x<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"y = d + x = "</span> <span class="token operator">&lt;&lt;</span> y <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+
+    y <span class="token operator">+</span><span class="token operator">=</span> d<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"y += d -&gt; "</span> <span class="token operator">&lt;&lt;</span> y <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+
+    y <span class="token operator">+</span><span class="token operator">=</span> d <span class="token operator">+</span> i<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"y += d + i -&gt; "</span> <span class="token operator">&lt;&lt;</span> y <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div>
+</body>
+
+</html>
