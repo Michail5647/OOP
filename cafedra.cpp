@@ -10,7 +10,6 @@ Group::Group() {
     std::cout << "Создан объект:" << my_id << "\n";
 }
 
-
 Group::Group(const char* n, int c) {
     name = new char[strlen(n) + 1];
     strcpy(name, n);
@@ -18,9 +17,7 @@ Group::Group(const char* n, int c) {
 
     my_id = ++total_count;
     std::cout << "Создан объект:" << my_id << " (Группа: " << name << ")" << "\n";
-
 }
-
 
 Group::Group(const Group& other) {
     count = other.count;
@@ -34,11 +31,8 @@ Group::Group(const Group& other) {
 Group::~Group() {
     delete[] name;
     --total_count;
-    std::cout << "Удален объект :" << my_id
-         << " (Осталось в памяти: " << total_count << ")" << "\n";
+    std::cout << "Удален объект :" << my_id << " (Осталось в памяти: " << total_count << ")" << "\n";
 }
-
-
 
 Group& Group::operator=(const Group& other) {
     if (this != &other) {
@@ -51,19 +45,16 @@ Group& Group::operator=(const Group& other) {
     return *this;
 }
 
-
 std::ostream& operator<<(std::ostream& os, const Group& group) {
     os << "Группа: " << group.name << ", Студентов: " << group.count;
     return os;
 }
-
 
 std::istream& operator>>(std::istream& is, Group& group) {
     char buffer[256];
     is >> buffer >> group.count;
 
     delete[] group.name;
-
 
     group.name = new char[strlen(buffer) + 1];
     strcpy(group.name, buffer);

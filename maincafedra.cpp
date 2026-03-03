@@ -1,9 +1,7 @@
 #include <iostream>
 #include "cafedra.h"
 
-
 int main() {
-
     Group** cafedra = nullptr;
     int groupCount = 0;
 
@@ -33,7 +31,6 @@ int main() {
             }
             case 2: {
                 if (tempGroup != nullptr) {
-
                     std::cout << "Текущий объект -> " << *tempGroup << "\n";
                 } else {
                     std::cout << "Объект еще не создан! Сначала выполните пункт 1.\n";
@@ -42,19 +39,15 @@ int main() {
             }
             case 3: {
                 if (tempGroup != nullptr) {
-
                     Group** newCafedra = new Group*[groupCount + 1];
 
                     for (int i = 0; i < groupCount; ++i) {
                         newCafedra[i] = cafedra[i];
                     }
 
-
                     newCafedra[groupCount] = new Group(*tempGroup);
 
-
                     delete[] cafedra;
-
 
                     cafedra = newCafedra;
                     groupCount++;
@@ -71,7 +64,6 @@ int main() {
                 } else {
                     std::cout << "\n Список групп на кафедре \n";
                     for (int i = 0; i < groupCount; ++i) {
-
                         std::cout << i + 1 << ". " << *(cafedra[i]) << "\n";
                     }
                 }
@@ -88,8 +80,6 @@ int main() {
         }
     }
 
-
-
     if (tempGroup != nullptr) {
         delete tempGroup;
     }
@@ -100,7 +90,6 @@ int main() {
         }
         delete[] cafedra;
     }
-    
-    return 0;
 
+    return 0;
 }
