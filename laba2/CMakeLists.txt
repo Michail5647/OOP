@@ -7,7 +7,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_CXX_CLANG_TIDY "clang-tidy")
 
-# Явно перечисляем файлы через пробел или новую строку
 add_executable(Example
     cafedra.cpp
     maincafedra.cpp
@@ -15,7 +14,3 @@ add_executable(Example
 )
 
 target_compile_options(Example PRIVATE -Wall -Wextra -Werror -Wpedantic)
-
-if(ENABLE_DEBUG)
-    target_compile_options(Example PRIVATE -g)
-endif()
