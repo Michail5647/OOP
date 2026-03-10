@@ -5,8 +5,10 @@ class Cafedra {
 private:
     char* name;
     int count;
-    int id;
-    static int counter;
+    int id;             // Порядковый номер в списке
+    int my_id;          // Уникальный номер экземпляра (для отчета)
+
+    static int instance_counter; // Общий счетчик созданных объектов в памяти
 
 public:
     Cafedra();
@@ -16,11 +18,12 @@ public:
 
     Cafedra& operator=(const Cafedra& other);
 
+    // Сеттеры и геттеры
+    void setId(int new_id) { id = new_id; }
+    int getId() const { return id; }
     const char* getName() const { return name; }
     int getCount() const { return count; }
-    int getId() const { return id; }
 
-    static void resetCounter() { counter = 0; }
     void show() const;
 };
 
