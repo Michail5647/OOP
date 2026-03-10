@@ -5,10 +5,9 @@ class Cafedra {
 private:
     char* name;
     int count;
-    int id;             // Порядковый номер в списке
-    int my_id;          // Уникальный номер экземпляра (для отчета)
-
-    static int instance_counter; // Общий счетчик созданных объектов в памяти
+    int id;
+    int my_id;
+    static int instance_counter; // счетчик созданных объектов
 
 public:
     Cafedra();

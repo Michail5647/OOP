@@ -12,13 +12,12 @@ int main() {
 
     int choice;
     while (true) {
-        std::cout << "\n1. Загрузка 2. Сохранение 3. Добавить 4. Удалить\n"
-                  << "5. Сортировка 6. Вывод 7. Выход\nВыбор: ";
+        std::cout << "\n1. Загрузка\n 2. Сохранение\n 3. Добавить\n 4. Удалить\n 5. Сортировка\n 6. Вывод\n 7. Выход\nВыбор: ";
         if (!(std::cin >> choice)) break;
         if (choice == 7) break;
 
         switch (choice) {
-            case 1: { // ЗАГРУЗКА
+            case 1: {
                 std::ifstream in("data.txt");
                 if (!in) { std::cout << "Файл не найден!\n"; break; }
                 in >> size;
