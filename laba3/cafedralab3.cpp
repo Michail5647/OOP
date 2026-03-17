@@ -28,7 +28,7 @@ Cafedra::Cafedra(const Cafedra& other) : count(other.count), id(other.id) {
 }
 
 Cafedra& Cafedra::operator=(const Cafedra& other) {
-    std::cout << "Operator =          | my_id: " << my_id << " catches from " << other.my_id << std::endl;
+    std::cout << "Operator =          | my_id: " << my_id << " ->" << other.my_id << std::endl;
     if (this == &other) return *this;
     delete[] name;
     id = other.id;
